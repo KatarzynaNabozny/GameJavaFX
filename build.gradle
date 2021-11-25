@@ -1,22 +1,25 @@
 plugins {
-	id 'org.springframework.boot' version '2.6.0-SNAPSHOT'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
+	id 'application'
+	id 'org.openjfx.javafxplugin' version '0.0.8'
 }
 
-group = 'com.kodilla-course'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+javafx {
+	version = "17.0.1"
+	modules = [ 'javafx.controls' ]
+}
+
+group 'com.kodilla'
+version '0.0.1-SNAPSHOT'
+mainClassName = 'com.kodillacourse.gameJavaFX.TicTacToe'
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.2'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.2'
+	testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.3.3'
 }
 
 test {
